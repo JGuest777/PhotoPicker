@@ -3,7 +3,7 @@ import camera from '../Images/camera.png';
 
 const Header = () => {
   return (
-    <header className="text-center">
+    <header className="mt-3 text-center">
       <img src={camera} alt="camera" />
       <h1 id="logo">FotoPikr</h1>
     </header>

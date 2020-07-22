@@ -1,17 +1,26 @@
 @import '~bootstrap/scss/bootstrap';
 
-#logo {
-  font-family: 'Orbitron', sans-serif;
-}
-
-.footerLinks {
-  padding-right: 5px;
-}
-
 body {
   background: url(./Images/bg.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  overflow: hidden;
+}
+
+#logo {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.footerLinks {
+  padding-right: 5px;
+  color: inherit;
+}
+
+.photoContainer {
+  height: 75vh;
+  width: auto;
+  overflow: scroll;
+  overflow-x: hidden;
 }

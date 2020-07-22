@@ -5,6 +5,8 @@ import './App.scss';
 import { Container } from 'react-bootstrap';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+import PhotoGrid from './Components/PhotoGrid';
+import SearchBar from './Components/SearchBar';
 
 const App = () => {
   const [photos, setPhotos] = useState([]);
@@ -18,7 +20,7 @@ const App = () => {
         // `https://api.unsplash.com/search/photos?page=1&query=${photos}&per_page=25&client_id=${clientId}`
       );
       console.log(result.data);
-      setPhotos(result.data);
+      setPhotos(result.data.results);
       setIsLoading(false);
     };
     fetchPhotos();
@@ -27,6 +29,8 @@ const App = () => {
   return (
     <Container fluid>
       <Header />
+      <SearchBar />
+      <PhotoGrid photos={photos} isLoading={isLoading} />
       <Footer />
     </Container>
   );

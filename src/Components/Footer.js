@@ -23,6 +23,7 @@ const Footer = () => {
         <a
           href="https://www.linkedin.com/in/james-guest-014b6568/"
           target="_blank"
+          className="footerLinks"
         >
           LinkedIn
         </a>
