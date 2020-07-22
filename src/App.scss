@@ -1,3 +1,9 @@
-html {
-  background-color: skyblue;
+@import '~bootstrap/scss/bootstrap';
+
+#logo {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.footerLinks {
+  padding-right: 5px;
 }
