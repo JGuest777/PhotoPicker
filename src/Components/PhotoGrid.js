@@ -9,7 +9,7 @@ const PhotoGrid = ({ photos, isLoading }) => {
       {photos.map((photo) => (
         <Row key={photo.id}>
           <Col className="text-center">
-            <img src={photo.urls.regular} />
+            <img src={photo.urls.regular} className="photos" />
           </Col>
         </Row>
       ))}

@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
   return (
     <div>
-      <footer className="text-center">
+      <footer className="mt-2 text-center">
         <small>&copy; Copyright 2020, FotoPikr</small>
         <br />
         <a
