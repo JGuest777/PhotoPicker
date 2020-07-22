@@ -10,16 +10,17 @@ import SearchBar from './Components/SearchBar';
 
 const App = () => {
   const [photos, setPhotos] = useState([]);
+  const [query, setQuery] = useState('');
   const [clientId, setClientId] = useState(ApiKey);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchPhotos = async () => {
       const result = await axios(
-        `https://api.unsplash.com/search/photos?page=1&query=coffee&per_page=25&client_id=${clientId}`
-        // `https://api.unsplash.com/search/photos?page=1&query=${photos}&per_page=25&client_id=${clientId}`
+        `https://api.unsplash.com/search/photos?page=1&query=${query}&per_page=25&client_id=${clientId}`
       );
       console.log(result.data);
+
       setPhotos(result.data.results);
       setIsLoading(false);
     };
@@ -29,7 +30,7 @@ const App = () => {
   return (
     <Container fluid>
       <Header />
-      <SearchBar />
+      <SearchBar getQuery={(q) => setQuery(q)} />
       <PhotoGrid photos={photos} isLoading={isLoading} />
       <Footer />
     </Container>

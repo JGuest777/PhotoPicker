@@ -24,3 +24,21 @@ body {
   overflow: scroll;
   overflow-x: hidden;
 }
+
+.inputWrapper {
+  width: 100%;
+}
+
+.input {
+  margin-top: 5px;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button {
+  max-width: 1080px;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
