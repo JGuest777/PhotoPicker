@@ -1,15 +1,28 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import ApiKey from '../Utils/ApiKey';
 import { Form, FormGroup, Button } from 'react-bootstrap';
 
-const SearchBar = ({ getQuery }) => {
+const SearchBar = ({ setIsLoading, setPhotos }) => {
   const [search, setSearch] = useState('');
+  const [clientId, setClientId] = useState(ApiKey);
 
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
 
   const handleSubmit = () => {
-    console.log(search);
+    const fetchPhotos = async () => {
+      const result = await axios(
+        `https://api.unsplash.com/search/photos?page=1&query=${search}&per_page=25&client_id=${clientId}`
+      );
+
+      setPhotos(result.data.results);
+      setIsLoading(false);
+    };
+    fetchPhotos();
+    setIsLoading(false);
+    setSearch('');
   };
 
   return (

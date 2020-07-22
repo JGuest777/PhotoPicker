@@ -3,7 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 
 const PhotoGrid = ({ photos, isLoading }) => {
   return isLoading ? (
-    <h1>Loading...</h1>
+    <h1 className="text-center">Waiting for search...</h1>
   ) : (
     <div className="photoContainer">
       {photos.map((photo) => (
