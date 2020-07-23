@@ -8,6 +8,7 @@ import SearchBar from './Components/SearchBar';
 
 const App = () => {
   const [photos, setPhotos] = useState([]);
+  const [search, setSearch] = useState('');
   const [isWaiting, setIsWaiting] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
