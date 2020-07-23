@@ -4,7 +4,6 @@ import { Form, FormGroup, Button } from 'react-bootstrap';
 
 const SearchBar = ({ setIsWaiting, setPhotos, setIsLoading }) => {
   const [search, setSearch] = useState('');
-  const [clientId, setClientId] = useState(process.env.REACT_APP_API_KEY);
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -14,7 +13,7 @@ const SearchBar = ({ setIsWaiting, setPhotos, setIsLoading }) => {
     setIsLoading(true);
     const fetchPhotos = async () => {
       const result = await axios(
-        `https://api.unsplash.com/search/photos?page=1&query=${search}&per_page=25&client_id=${clientId}`
+        `https://api.unsplash.com/search/photos?page=1&query=${search}&per_page=25&client_id=${process.env.REACT_APP_API_KEY}`
       );
 
       setIsWaiting(false);
