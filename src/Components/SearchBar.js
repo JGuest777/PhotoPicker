@@ -12,13 +12,16 @@ const SearchBar = ({ setIsWaiting, setPhotos, setIsLoading }) => {
   const handleSubmit = () => {
     setIsLoading(true);
     const fetchPhotos = async () => {
-      const result = await axios(
-        `https://api.unsplash.com/search/photos?page=1&query=${search}&per_page=25&client_id=${process.env.REACT_APP_API_KEY}`
-      );
-
-      setIsWaiting(false);
-      setIsLoading(false);
-      setPhotos(result.data.results);
+      try {
+        const result = await axios(
+          `https://api.unsplash.com/search/photos?page=1&query=${search}&per_page=25&client_id=${process.env.REACT_APP_API_KEY}`
+        );
+        setIsWaiting(false);
+        setIsLoading(false);
+        setPhotos(result.data.results);
+      } catch (error) {
+        console.warn(`WARNING: fetchPhotos FAILED - ${error}`);
+      }
     };
     fetchPhotos();
     setSearch('');
