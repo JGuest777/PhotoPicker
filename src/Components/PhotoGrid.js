@@ -1,15 +1,15 @@
 import React from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Image } from 'react-bootstrap';
 
-const PhotoGrid = ({ photos, isLoading }) => {
-  return isLoading ? (
-    <h1 className="text-center">Waiting for search...</h1>
+const PhotoGrid = ({ photos, isWaiting }) => {
+  return isWaiting ? (
+    <h1 className="text-center">Waiting for you...</h1>
   ) : (
     <div className="photoContainer">
       {photos.map((photo) => (
         <Row key={photo.id}>
           <Col className="text-center">
-            <img src={photo.urls.regular} className="photos" />
+            <Image src={photo.urls.regular} rounded fluid />
           </Col>
         </Row>
       ))}

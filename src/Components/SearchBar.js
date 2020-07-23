@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import ApiKey from '../Utils/ApiKey';
 import { Form, FormGroup, Button } from 'react-bootstrap';
+import Spinner from './Spinner';
 
-const SearchBar = ({ setIsLoading, setPhotos }) => {
+const SearchBar = ({ setIsWaiting, setPhotos, isLoading, setIsLoading }) => {
   const [search, setSearch] = useState('');
   const [clientId, setClientId] = useState(ApiKey);
 
@@ -12,20 +13,23 @@ const SearchBar = ({ setIsLoading, setPhotos }) => {
   };
 
   const handleSubmit = () => {
+    setIsLoading(true);
     const fetchPhotos = async () => {
       const result = await axios(
         `https://api.unsplash.com/search/photos?page=1&query=${search}&per_page=25&client_id=${clientId}`
       );
 
-      setPhotos(result.data.results);
+      setIsWaiting(false);
       setIsLoading(false);
+      setPhotos(result.data.results);
     };
     fetchPhotos();
-    setIsLoading(false);
     setSearch('');
   };
 
-  return (
+  return isLoading ? (
+    <Spinner className="spinner" />
+  ) : (
     <FormGroup className="d-flex justify-content-center">
       <div className="inputWrapper">
         <Form.Control

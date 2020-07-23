@@ -8,13 +8,19 @@ import SearchBar from './Components/SearchBar';
 
 const App = () => {
   const [photos, setPhotos] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isWaiting, setIsWaiting] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <Container fluid>
       <Header />
-      <SearchBar setIsLoading={setIsLoading} setPhotos={setPhotos} />
-      <PhotoGrid photos={photos} isLoading={isLoading} />
+      <SearchBar
+        setIsWaiting={setIsWaiting}
+        setPhotos={setPhotos}
+        isLoading={isLoading}
+        setIsLoading={setIsLoading}
+      />
+      <PhotoGrid photos={photos} isWaiting={isWaiting} />
       <Footer />
     </Container>
   );
