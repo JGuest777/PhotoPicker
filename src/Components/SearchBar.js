@@ -6,8 +6,6 @@ const SearchBar = ({ setIsWaiting, setPhotos, setIsLoading }) => {
   const [search, setSearch] = useState('');
   const [clientId, setClientId] = useState(process.env.REACT_APP_API_KEY);
 
-  console.log(process.env.TEST_KEY);
-
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
