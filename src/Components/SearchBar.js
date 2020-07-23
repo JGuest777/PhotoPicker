@@ -35,6 +35,11 @@ const SearchBar = ({ setIsWaiting, setPhotos, setIsLoading }) => {
           name="photo"
           className="input"
           onChange={handleChange}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              handleSubmit();
+            }
+          }}
           value={search}
           autoFocus
         />
