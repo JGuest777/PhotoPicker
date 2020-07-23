@@ -17,10 +17,14 @@ const App = () => {
       <SearchBar
         setIsWaiting={setIsWaiting}
         setPhotos={setPhotos}
+        setIsLoading={setIsLoading}
+      />
+      <PhotoGrid
+        photos={photos}
+        isWaiting={isWaiting}
         isLoading={isLoading}
         setIsLoading={setIsLoading}
       />
-      <PhotoGrid photos={photos} isWaiting={isWaiting} />
       <Footer />
     </Container>
   );

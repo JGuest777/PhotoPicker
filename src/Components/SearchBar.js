@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import ApiKey from '../Utils/ApiKey';
 import { Form, FormGroup, Button } from 'react-bootstrap';
-import Spinner from './Spinner';
 
-const SearchBar = ({ setIsWaiting, setPhotos, isLoading, setIsLoading }) => {
+const SearchBar = ({ setIsWaiting, setPhotos, setIsLoading }) => {
   const [search, setSearch] = useState('');
   const [clientId, setClientId] = useState(ApiKey);
 
@@ -27,9 +26,7 @@ const SearchBar = ({ setIsWaiting, setPhotos, isLoading, setIsLoading }) => {
     setSearch('');
   };
 
-  return isLoading ? (
-    <Spinner className="spinner" />
-  ) : (
+  return (
     <FormGroup className="d-flex justify-content-center">
       <div className="inputWrapper">
         <Form.Control

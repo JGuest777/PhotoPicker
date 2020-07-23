@@ -1,9 +1,12 @@
 import React from 'react';
 import { Row, Col, Image } from 'react-bootstrap';
+import Spinner from './Spinner';
 
-const PhotoGrid = ({ photos, isWaiting }) => {
+const PhotoGrid = ({ photos, isWaiting, isLoading }) => {
   return isWaiting ? (
     <h1 className="text-center">Waiting for you...</h1>
+  ) : isLoading ? (
+    <Spinner className="spinner" />
   ) : (
     <div className="photoContainer">
       {photos.map((photo) => (
