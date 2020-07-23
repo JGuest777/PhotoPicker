@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import ApiKey from '../Utils/ApiKey';
 import { Form, FormGroup, Button } from 'react-bootstrap';
 
 const SearchBar = ({ setIsWaiting, setPhotos, setIsLoading }) => {
   const [search, setSearch] = useState('');
-  const [clientId, setClientId] = useState(ApiKey);
+  const [clientId, setClientId] = useState(process.env.REACT_APP_API_KEY);
 
   const handleChange = (e) => {
     setSearch(e.target.value);

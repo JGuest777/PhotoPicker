@@ -14,7 +14,7 @@ const Footer = () => {
           Portfolio
         </a>
         <a
-          href="https://github.com/JGuest777"
+          href="https://github.com/JGuest777/PhotoPicker"
           target="_blank"
           className="footerLinks"
         >
